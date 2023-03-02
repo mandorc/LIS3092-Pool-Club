@@ -1,0 +1,19 @@
+C:\Users\arman\Documents\GitHub\LIS3092-class-assignments\src\Pool Club\Pool Club\bin\Debug\net6.0-windows\Pool Club.exe
+C:\Users\arman\Documents\GitHub\LIS3092-class-assignments\src\Pool Club\Pool Club\bin\Debug\net6.0-windows\Pool Club.deps.json
+C:\Users\arman\Documents\GitHub\LIS3092-class-assignments\src\Pool Club\Pool Club\bin\Debug\net6.0-windows\Pool Club.runtimeconfig.json
+C:\Users\arman\Documents\GitHub\LIS3092-class-assignments\src\Pool Club\Pool Club\bin\Debug\net6.0-windows\Pool Club.dll
+C:\Users\arman\Documents\GitHub\LIS3092-class-assignments\src\Pool Club\Pool Club\bin\Debug\net6.0-windows\Pool Club.pdb
+C:\Users\arman\Documents\GitHub\LIS3092-class-assignments\src\Pool Club\Pool Club\obj\Debug\net6.0-windows\Pool Club.csproj.AssemblyReference.cache
+C:\Users\arman\Documents\GitHub\LIS3092-class-assignments\src\Pool Club\Pool Club\obj\Debug\net6.0-windows\Pool_Club.Assets.resources
+C:\Users\arman\Documents\GitHub\LIS3092-class-assignments\src\Pool Club\Pool Club\obj\Debug\net6.0-windows\Pool_Club.MenuFrame.resources
+C:\Users\arman\Documents\GitHub\LIS3092-class-assignments\src\Pool Club\Pool Club\obj\Debug\net6.0-windows\Pool Club.csproj.GenerateResource.cache
+C:\Users\arman\Documents\GitHub\LIS3092-class-assignments\src\Pool Club\Pool Club\obj\Debug\net6.0-windows\Pool Club.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\arman\Documents\GitHub\LIS3092-class-assignments\src\Pool Club\Pool Club\obj\Debug\net6.0-windows\Pool Club.AssemblyInfoInputs.cache
+C:\Users\arman\Documents\GitHub\LIS3092-class-assignments\src\Pool Club\Pool Club\obj\Debug\net6.0-windows\Pool Club.AssemblyInfo.cs
+C:\Users\arman\Documents\GitHub\LIS3092-class-assignments\src\Pool Club\Pool Club\obj\Debug\net6.0-windows\Pool Club.csproj.CoreCompileInputs.cache
+C:\Users\arman\Documents\GitHub\LIS3092-class-assignments\src\Pool Club\Pool Club\obj\Debug\net6.0-windows\Pool Club.dll
+C:\Users\arman\Documents\GitHub\LIS3092-class-assignments\src\Pool Club\Pool Club\obj\Debug\net6.0-windows\refint\Pool Club.dll
+C:\Users\arman\Documents\GitHub\LIS3092-class-assignments\src\Pool Club\Pool Club\obj\Debug\net6.0-windows\Pool Club.pdb
+C:\Users\arman\Documents\GitHub\LIS3092-class-assignments\src\Pool Club\Pool Club\obj\Debug\net6.0-windows\Pool Club.genruntimeconfig.cache
+C:\Users\arman\Documents\GitHub\LIS3092-class-assignments\src\Pool Club\Pool Club\obj\Debug\net6.0-windows\ref\Pool Club.dll
+C:\Users\arman\Documents\GitHub\LIS3092-class-assignments\src\Pool Club\Pool Club\obj\Debug\net6.0-windows\Pool_Club.GameScene.resources
