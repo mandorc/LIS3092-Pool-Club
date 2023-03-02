@@ -9,14 +9,25 @@ namespace Pool_Club
     internal class Pelota
     {
 
-        private int posX;
-        private int posY;
-        private int radio;
-        private int velocidadX;
-        private int velocidadY;
-        private int velocidadInicial; // nueva variable para almacenar la velocidad inicial
-        private Brush color;
+        public int posX;
+        public int posY;
+        public int radio;
+        public int velocidadX;
+        public int velocidadY;
+        public int velocidadInicial; // nueva variable para almacenar la velocidad inicial
+        public Brush color;
 
+        public int PosX
+        {
+            get { return posX; }
+            set { posX = value; }
+        }
+
+        public int PosY
+        {
+            get { return posY; }
+            set { posY = value; }
+        }
         public Pelota(int x, int y, int r, int vx, int vy, Brush c)
         {
             posX = x;

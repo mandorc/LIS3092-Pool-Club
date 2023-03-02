@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\arman\\Documents\\GitHub\\LIS3092-class-assignments\\src\\Pool Club\\Pool Club\\Pool Club.csproj": {}
+    "C:\\Users\\arman\\Documents\\GitHub\\Proyecto 2 videojuegos\\LIS3092-Pool-Club\\Pool Club\\Pool Club\\Pool Club.csproj": {}
   },
   "projects": {
-    "C:\\Users\\arman\\Documents\\GitHub\\LIS3092-class-assignments\\src\\Pool Club\\Pool Club\\Pool Club.csproj": {
+    "C:\\Users\\arman\\Documents\\GitHub\\Proyecto 2 videojuegos\\LIS3092-Pool-Club\\Pool Club\\Pool Club\\Pool Club.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\arman\\Documents\\GitHub\\LIS3092-class-assignments\\src\\Pool Club\\Pool Club\\Pool Club.csproj",
+        "projectUniqueName": "C:\\Users\\arman\\Documents\\GitHub\\Proyecto 2 videojuegos\\LIS3092-Pool-Club\\Pool Club\\Pool Club\\Pool Club.csproj",
         "projectName": "Pool Club",
-        "projectPath": "C:\\Users\\arman\\Documents\\GitHub\\LIS3092-class-assignments\\src\\Pool Club\\Pool Club\\Pool Club.csproj",
+        "projectPath": "C:\\Users\\arman\\Documents\\GitHub\\Proyecto 2 videojuegos\\LIS3092-Pool-Club\\Pool Club\\Pool Club\\Pool Club.csproj",
         "packagesPath": "C:\\Users\\arman\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\arman\\Documents\\GitHub\\LIS3092-class-assignments\\src\\Pool Club\\Pool Club\\obj\\",
+        "outputPath": "C:\\Users\\arman\\Documents\\GitHub\\Proyecto 2 videojuegos\\LIS3092-Pool-Club\\Pool Club\\Pool Club\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\arman\\AppData\\Roaming\\NuGet\\NuGet.Config",
