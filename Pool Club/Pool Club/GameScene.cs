@@ -13,7 +13,8 @@ namespace Pool_Club
     public partial class GameScene : Form
     {
         private List<Pelota> pelotas; // lista para almacenar las pelotas
-        private Brush[] colores = { Brushes.Red, Brushes.Blue, Brushes.Yellow, Brushes.Orange, Brushes.Pink, Brushes.Purple, Brushes.Teal, Brushes.LimeGreen }; // array de colores para las pelotas
+        private Brush[] colores = { Brushes.Yellow, Brushes.Blue, Brushes.Red, Brushes.Purple, Brushes.Orange, Brushes.Green, Brushes.Maroon, Brushes.Black, Brushes.DarkCyan, Brushes.Pink, Brushes.Gray, Brushes.DeepSkyBlue, Brushes.WhiteSmoke, Brushes.SaddleBrown, Brushes.MediumSpringGreen }; // array de colores para las pelotas
+
         private bool[] pelotaDesaparecida = { false, false, false, false, false, false, false, false }; // array para determinar si cada pelota ha desaparecido
 
         public GameScene()
@@ -25,24 +26,14 @@ namespace Pool_Club
 
             pelotas = new List<Pelota>();
 
-            // Crear 8 pelotas en posiciones aleatorias con velocidades aleatorias
-            Random rnd = new Random();
-            for (int i = 0; i < 8; i++)
-            {
-                int x = rnd.Next(pictureBox1.Width - 100) + 50;
-                int y = rnd.Next(pictureBox1.Height - 100) + 50;
-                int vx = rnd.Next(-5, 6);
-                int vy = rnd.Next(-5, 6);
-                while (vx == 0 || vy == 0) // asegurarse de que las velocidades no sean cero
-                {
-                    vx = rnd.Next(-5, 6);
-                    vy = rnd.Next(-5, 6);
-                }
-                Pelota p = new Pelota(x, y, 20, vx, vy, colores[i]);
-                pelotas.Add(p);
-            }
+            // Crear una pelota verde en el centro de la mesa
+            int ballRadius = 20;
+            int ballPosX = pictureBox1.Width / 2;
+            int ballPosY = pictureBox1.Height / 2;
 
-            
+            Pelota p = new Pelota(ballPosX, ballPosY, ballRadius, 0, 0, Brushes.Green);
+            pelotas.Add(p);
+
         }
 
         private void GameScene_Load(object sender, EventArgs e)
