@@ -31,8 +31,19 @@ namespace Pool_Club
             int ballPosX = pictureBox1.Width / 2;
             int ballPosY = pictureBox1.Height / 2;
 
-            Pelota p = new Pelota(ballPosX, ballPosY, ballRadius, 0, 0, Brushes.Green);
-            pelotas.Add(p);
+            Pelota p1 = new Pelota(ballPosX, ballPosY, ballRadius, 0, 0, Brushes.Yellow);
+            Pelota p2 = new Pelota(ballPosX+(2*ballRadius), ballPosY- ballRadius, ballRadius, 0, 0, Brushes.Blue);
+            Pelota p3 = new Pelota(ballPosX + (2 * ballRadius), ballPosY + ballRadius, ballRadius, 0, 0, Brushes.Red);
+
+
+            Pelota pBlanca = new Pelota(ballPosX-200, ballPosY, ballRadius, 0, 0, Brushes.White);
+
+
+            pelotas.Add(p1);
+            pelotas.Add(p2);
+            pelotas.Add(p3);
+
+            pelotas.Add(pBlanca);
 
         }
 
