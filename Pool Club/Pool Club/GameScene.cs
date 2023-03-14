@@ -35,9 +35,10 @@ namespace Pool_Club
             int ballPosX = pictureBox1.Width / 2;
             int ballPosY = pictureBox1.Height / 2;
 
-            Pelota p1 = new Pelota(ballPosX, ballPosY, ballRadius, 0, 0, Brushes.Yellow);
-            Pelota p2 = new Pelota(ballPosX+(2*ballRadius), ballPosY- ballRadius, ballRadius, 0, 0, Brushes.Blue);
-            Pelota p3 = new Pelota(ballPosX + (2 * ballRadius), ballPosY + ballRadius, ballRadius, 0, 0, Brushes.Red);
+            Random rnd = new Random();
+            Pelota p1 = new Pelota(ballPosX, ballPosY, ballRadius, rnd.Next(-10, 10), rnd.Next(-10, 10), Brushes.Yellow);
+            Pelota p2 = new Pelota(ballPosX + (2 * ballRadius), ballPosY - ballRadius, ballRadius, rnd.Next(-10, 10), rnd.Next(-10, 10), Brushes.Blue);
+            Pelota p3 = new Pelota(ballPosX + (2 * ballRadius), ballPosY + ballRadius, ballRadius, rnd.Next(-10, 10), rnd.Next(-10, 10), Brushes.Red);
 
 
             Pelota pBlanca = new Pelota(ballPosX-200, ballPosY, ballRadius, 0, 0, Brushes.White);
@@ -133,6 +134,33 @@ namespace Pool_Club
                         p.PosY = -100;
                     }
                 }
+
+                // Comprobar si la pelota ha colisionado con otra pelota
+                foreach (Pelota otraPelota in pelotas)
+                {
+                    if (otraPelota != p) // Evita comprobar la colisión consigo misma
+                    {
+                        double distancia = Math.Sqrt(Math.Pow(p.PosX - otraPelota.PosX, 2) + Math.Pow(p.PosY - otraPelota.PosY, 2));
+                        if (distancia < p.radio + otraPelota.radio)
+                        {
+                            // Colisión detectada
+                            double angulo = Math.Atan2(p.PosY - otraPelota.PosY, p.PosX - otraPelota.PosX);
+                            double velocidadX1 = Math.Cos(angulo) * p.velocidadInicial;
+                            double velocidadY1 = Math.Sin(angulo) * p.velocidadInicial;
+                            double velocidadX2 = Math.Cos(angulo + Math.PI) * otraPelota.velocidadInicial;
+                            double velocidadY2 = Math.Sin(angulo + Math.PI) * otraPelota.velocidadInicial;
+
+                            p.velocidadX = Convert.ToInt32(velocidadX1);
+                            p.velocidadY = Convert.ToInt32(velocidadY1);
+                            otraPelota.velocidadX = Convert.ToInt32(velocidadX2);
+                            otraPelota.velocidadY = Convert.ToInt32(velocidadY2);
+
+                            // Mover las pelotas después de la colisión
+                            p.Mover(pictureBox1.Width, pictureBox1.Height, pelotas);
+                            otraPelota.Mover(pictureBox1.Width, pictureBox1.Height, pelotas);
+                        }
+                    }
+                }
             }
 
             // Redibujar el PictureBox
@@ -148,6 +176,32 @@ namespace Pool_Club
             foreach (Pelota p in pelotas)
             {
                 p.Dibujar(e.Graphics);
+            }
+
+            // Detectar y resolver colisiones entre pelotas
+            for (int i = 0; i < pelotas.Count; i++)
+            {
+                for (int j = i + 1; j < pelotas.Count; j++)
+                {
+                    Pelota p1 = pelotas[i];
+                    Pelota p2 = pelotas[j];
+
+                    double distancia = Math.Sqrt(Math.Pow(p1.posX - p2.posX, 2) + Math.Pow(p1.posY - p2.posY, 2));
+                    if (distancia < p1.radio + p2.radio)
+                    {
+                        // Colisión detectada
+                        double angulo = Math.Atan2(p1.posY - p2.posY, p1.posX - p2.posX);
+                        double velocidadX1 = Math.Cos(angulo) * p1.velocidadInicial;
+                        double velocidadY1 = Math.Sin(angulo) * p1.velocidadInicial;
+                        double velocidadX2 = Math.Cos(angulo + Math.PI) * p2.velocidadInicial;
+                        double velocidadY2 = Math.Sin(angulo + Math.PI) * p2.velocidadInicial;
+
+                        p1.velocidadX = Convert.ToInt32(velocidadX1);
+                        p1.velocidadY = Convert.ToInt32(velocidadY1);
+                        p2.velocidadX = Convert.ToInt32(velocidadX2);
+                        p2.velocidadY = Convert.ToInt32(velocidadY2);
+                    }
+                }
             }
 
         }

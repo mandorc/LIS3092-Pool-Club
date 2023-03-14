@@ -14,7 +14,7 @@ namespace Pool_Club
         public int radio;
         public int velocidadX;
         public int velocidadY;
-        public int velocidadInicial; // nueva variable para almacenar la velocidad inicial
+        public int velocidadInicial;
         public Brush color;
 
         public int PosX
@@ -28,6 +28,7 @@ namespace Pool_Club
             get { return posY; }
             set { posY = value; }
         }
+
         public Pelota(int x, int y, int r, int vx, int vy, Brush c)
         {
             posX = x;
@@ -35,7 +36,7 @@ namespace Pool_Club
             radio = r;
             velocidadX = vx;
             velocidadY = vy;
-            velocidadInicial = (int)Math.Sqrt(Math.Pow(velocidadX, 2) + Math.Pow(velocidadY, 2)); // calcula la velocidad inicial
+            velocidadInicial = (int)Math.Sqrt(Math.Pow(velocidadX, 2) + Math.Pow(velocidadY, 2));
             color = c;
         }
 
@@ -82,7 +83,6 @@ namespace Pool_Club
                 }
             }
         }
-
 
     }
 }
