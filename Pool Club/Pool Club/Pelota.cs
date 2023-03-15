@@ -51,11 +51,12 @@ namespace Pool_Club
             posY += velocidadY;
 
             // Comprobar si la pelota ha llegado a los bordes de la pantalla
-            if (posX - radio < 0 || posX + radio > ancho)
+            // izquierda - derecha
+            if (posX - radio < 55 || posX + radio > ancho-55)
             {
                 velocidadX = -velocidadX;
             }
-            if (posY - radio < 0 || posY + radio > alto)
+            if (posY - radio < 55 || posY + radio > alto-55)
             {
                 velocidadY = -velocidadY;
             }

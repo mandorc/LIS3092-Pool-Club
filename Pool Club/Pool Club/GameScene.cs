@@ -31,24 +31,24 @@ namespace Pool_Club
             pelotas = new List<Pelota>();
 
             // Crear una pelota verde en el centro de la mesa
-            int ballRadius = 20;
+            int ballRadius = 10;
             int ballPosX = pictureBox1.Width / 2;
             int ballPosY = pictureBox1.Height / 2;
 
             Random rnd = new Random();
-            Pelota p1 = new Pelota(ballPosX, ballPosY, ballRadius, rnd.Next(-10, 10), rnd.Next(-10, 10), Brushes.Yellow);
-            Pelota p2 = new Pelota(ballPosX + (2 * ballRadius), ballPosY - ballRadius, ballRadius, rnd.Next(-10, 10), rnd.Next(-10, 10), Brushes.Blue);
-            Pelota p3 = new Pelota(ballPosX + (2 * ballRadius), ballPosY + ballRadius, ballRadius, rnd.Next(-10, 10), rnd.Next(-10, 10), Brushes.Red);
+            Pelota pelota1 = new Pelota(ballPosX, ballPosY, ballRadius, rnd.Next(-10, 10), rnd.Next(-10, 10), Brushes.Yellow);
+            Pelota pelota2 = new Pelota(ballPosX + (2 * ballRadius), ballPosY - ballRadius, ballRadius, rnd.Next(-10, 10), rnd.Next(-10, 10), Brushes.Blue);
+            Pelota pelota3 = new Pelota(ballPosX + (2 * ballRadius), ballPosY + ballRadius, ballRadius, rnd.Next(-10, 10), rnd.Next(-10, 10), Brushes.Red);
 
 
-            Pelota pBlanca = new Pelota(ballPosX-200, ballPosY, ballRadius, 0, 0, Brushes.White);
+            Pelota pelotaBlanca = new Pelota(ballPosX-200, ballPosY, ballRadius, 0, 0, Brushes.White);
 
 
-            pelotas.Add(p1);
-            pelotas.Add(p2);
-            pelotas.Add(p3);
+            pelotas.Add(pelota1);
+            pelotas.Add(pelota2);
+            pelotas.Add(pelota3);
 
-            pelotas.Add(pBlanca);
+            pelotas.Add(pelotaBlanca);
 
         }
 
