@@ -81,6 +81,7 @@ namespace Pool_Club
                         otraPelota.velocidadY = Convert.ToInt32(velocidadY2);
                     }
                 }
+
             }
         }
 
