@@ -37,12 +37,10 @@ namespace Pool_Club
 
             Random rnd = new Random();
             Pelota pelota1 = new Pelota(ballPosX, ballPosY, ballRadius, rnd.Next(-10, 10), rnd.Next(-10, 10), "1");
-            Pelota pelota2 = new Pelota(ballPosX + (2 * ballRadius), ballPosY - ballRadius, ballRadius, rnd.Next(-10, 10), rnd.Next(-10, 10), "");
-            Pelota pelota3 = new Pelota(ballPosX + (2 * ballRadius), ballPosY + ballRadius, ballRadius, rnd.Next(-10, 10), rnd.Next(-10, 10), "");
-
+            Pelota pelota2 = new Pelota(ballPosX + (2 * ballRadius), ballPosY - ballRadius, ballRadius, rnd.Next(-10, 10), rnd.Next(-10, 10), "2");
+            Pelota pelota3 = new Pelota(ballPosX + (2 * ballRadius), ballPosY + ballRadius, ballRadius, rnd.Next(-10, 10), rnd.Next(-10, 10), "3");
 
             Pelota pelotaBlanca = new Pelota(ballPosX-200, ballPosY, ballRadius, 0, 0, "blanca");
-
 
             pelotas.Add(pelota1);
             pelotas.Add(pelota2);

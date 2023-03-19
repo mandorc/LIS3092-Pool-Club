@@ -43,6 +43,12 @@ namespace Pool_Club
                 case "1":
                     Image = Resources.pelota1;
                     break;
+                case "2":
+                    Image = Resources.pelota2;
+                    break;
+                case "3":
+                    Image = Resources.pelota3;
+                    break;
                 case "blanca":
                     Image = Resources.pelotaBlanca; break;
                 default:
