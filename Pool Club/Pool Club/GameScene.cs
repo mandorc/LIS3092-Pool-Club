@@ -37,14 +37,46 @@ namespace Pool_Club
 
             Random rnd = new Random();
             Pelota pelota1 = new Pelota(ballPosX, ballPosY, ballRadius, rnd.Next(-10, 10), rnd.Next(-10, 10), "1");
+            Console.WriteLine(ballPosX); //440
+            Console.WriteLine(ballPosY); //210
+            Console.WriteLine(ballRadius); //10
             Pelota pelota2 = new Pelota(ballPosX + (2 * ballRadius), ballPosY - ballRadius, ballRadius, rnd.Next(-10, 10), rnd.Next(-10, 10), "2");
             Pelota pelota3 = new Pelota(ballPosX + (2 * ballRadius), ballPosY + ballRadius, ballRadius, rnd.Next(-10, 10), rnd.Next(-10, 10), "3");
+            // Tercera
+            Pelota pelota4 = new Pelota(480, 210, ballRadius, rnd.Next(-10, 10), rnd.Next(-10, 10), "4");
+            Pelota pelota5 = new Pelota(480, 230, ballRadius, rnd.Next(-10, 10), rnd.Next(-10, 10), "5");
+            Pelota pelota6 = new Pelota(480, 190, ballRadius, rnd.Next(-10, 10), rnd.Next(-10, 10), "6");
+            // Cuarta
+            Pelota pelota9 = new Pelota(500, 180, ballRadius, rnd.Next(-10, 10), rnd.Next(-10, 10), "9");
+            Pelota pelota8 = new Pelota(500, 200, ballRadius, rnd.Next(-10, 10), rnd.Next(-10, 10), "8");
+            Pelota pelota7 = new Pelota(500, 220, ballRadius, rnd.Next(-10, 10), rnd.Next(-10, 10), "7");
+            Pelota pelota10 = new Pelota(500, 240, ballRadius, rnd.Next(-10, 10), rnd.Next(-10, 10), "10");
+            // Quinta
+            Pelota pelota14 = new Pelota(520, 170, ballRadius, rnd.Next(-10, 10), rnd.Next(-10, 10), "14");
+            Pelota pelota13 = new Pelota(520, 190, ballRadius, rnd.Next(-10, 10), rnd.Next(-10, 10), "13");
+            Pelota pelota12 = new Pelota(520, 210, ballRadius, rnd.Next(-10, 10), rnd.Next(-10, 10), "12");
+            Pelota pelota11 = new Pelota(520, 230, ballRadius, rnd.Next(-10, 10), rnd.Next(-10, 10), "11");
+            Pelota pelota15 = new Pelota(520, 250, ballRadius, rnd.Next(-10, 10), rnd.Next(-10, 10), "15");
+
+
 
             Pelota pelotaBlanca = new Pelota(ballPosX-200, ballPosY, ballRadius, 0, 0, "blanca");
 
             pelotas.Add(pelota1);
             pelotas.Add(pelota2);
             pelotas.Add(pelota3);
+            pelotas.Add(pelota4);
+            pelotas.Add(pelota5);
+            pelotas.Add(pelota6);
+            pelotas.Add(pelota7);
+            pelotas.Add(pelota8);
+            pelotas.Add(pelota9);
+            pelotas.Add(pelota10);
+            pelotas.Add(pelota11);
+            pelotas.Add(pelota12);
+            pelotas.Add(pelota13);
+            pelotas.Add(pelota14);
+            pelotas.Add(pelota15);
 
             pelotas.Add(pelotaBlanca);
 
@@ -209,6 +241,8 @@ namespace Pool_Club
 
         private void pictureBox1_MouseDown(object sender, MouseEventArgs e)
         {
+            timer1.Enabled = true;
+
             // Verificar si el clic del mouse está en la pelota blanca
             foreach (Pelota p in pelotas)
             {
