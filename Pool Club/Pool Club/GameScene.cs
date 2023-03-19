@@ -120,6 +120,7 @@ namespace Pool_Club
             // Mover las pelotas
             foreach (Pelota p in pelotas)
             {
+                
                 p.Mover(pictureBox1.Width, pictureBox1.Height, pelotas);
 
                 // Comprobar si la pelota ha desaparecido en un agujero
@@ -127,9 +128,11 @@ namespace Pool_Club
                 {
                     if (!pelotaDesaparecida[i] && EstaEnAgujero(p, i))
                     {
-                        pelotaDesaparecida[i] = true;
+                        Console.WriteLine(p.name);
+                        //pelotaDesaparecida[i] = true;
                         p.PosX = -100; // establecer la posición de la pelota fuera del área visible del PictureBox
                         p.PosY = -100;
+                        //pelotaDesaparecida[i] = false;
                     }
                 }
 
@@ -206,10 +209,10 @@ namespace Pool_Club
 
         private void pictureBox1_MouseDown(object sender, MouseEventArgs e)
         {
-            // Verificar si se ha hecho clic en la pelota blanca
+            // Verificar si el clic del mouse está en la pelota blanca
             foreach (Pelota p in pelotas)
             {
-                if (p.Image == Resources.pelotaBlanca && Math.Sqrt(Math.Pow(e.X - p.posX, 2) + Math.Pow(e.Y - p.posY, 2)) < p.radio)
+                if (p.bcolor == Brushes.White && Math.Sqrt(Math.Pow(e.X - p.posX, 2) + Math.Pow(e.Y - p.posY, 2)) < p.radio)
                 {
                     pelotaBlancaSeleccionada = p;
                     arrastrandoPelotaBlanca = true;
@@ -224,21 +227,15 @@ namespace Pool_Club
             // Verificar si se está arrastrando la pelota blanca
             if (arrastrandoPelotaBlanca)
             {
-                // Calcular la dirección y velocidad del movimiento de la pelota blanca
-                int direccionX = e.X - posicionAnteriorMouse.X;
-                int direccionY = e.Y - posicionAnteriorMouse.Y;
-                int velocidad = Math.Min(20, (int)Math.Sqrt(Math.Pow(direccionX, 2) + Math.Pow(direccionY, 2)));
-
-                // Actualizar la posición de la pelota blanca
-                pelotaBlancaSeleccionada.velocidadX = direccionX * velocidad / 20;
-                pelotaBlancaSeleccionada.velocidadY = direccionY * velocidad / 20;
-                pelotaBlancaSeleccionada.Mover(pictureBox1.Width, pictureBox1.Height, pelotas);
-
-                // Redibujar el PictureBox
-                pictureBox1.Refresh();
-
-                // Actualizar la posición anterior del mouse
+                // Calcular la nueva posición de la pelota blanca
+                int deltaX = e.Location.X - posicionAnteriorMouse.X;
+                int deltaY = e.Location.Y - posicionAnteriorMouse.Y;
+                pelotaBlancaSeleccionada.PosX += deltaX;
+                pelotaBlancaSeleccionada.PosY += deltaY;
                 posicionAnteriorMouse = e.Location;
+
+                // Volver a dibujar el PictureBox
+                pictureBox1.Refresh();
             }
         }
 

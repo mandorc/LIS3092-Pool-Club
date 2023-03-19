@@ -15,8 +15,9 @@ namespace Pool_Club
         public int velocidadX;
         public int velocidadY;
         public int velocidadInicial;
-        //public Brush color;
+        public Brush bcolor;
         public Image Image { get; private set; }
+        public String name = "pelotaSinNombre";
 
         public int PosX
         {
@@ -42,15 +43,22 @@ namespace Pool_Club
             {
                 case "1":
                     Image = Resources.pelota1;
+                    color = "1";
+                    name = "pelota 1";
                     break;
                 case "2":
                     Image = Resources.pelota2;
+                    color = "2";
                     break;
                 case "3":
                     Image = Resources.pelota3;
+                    color = "3";
                     break;
                 case "blanca":
-                    Image = Resources.pelotaBlanca; break;
+                    Brush c = Brushes.White;
+                    bcolor = c;
+                    Image = Resources.pelotaBlanca;
+                    break;
                 default:
                     Image = Resources.pelota2; break;
             }
@@ -67,12 +75,13 @@ namespace Pool_Club
             posX += velocidadX;
             posY += velocidadY;
 
-            // Comprobar si la pelota ha llegado a los bordes de la pantalla
+            // Comprobar si la pelota ha llegado a los bordes de la mesa
             // izquierda - derecha
             if (posX - radio < 55 || posX + radio > ancho-55)
             {
                 velocidadX = -velocidadX;
             }
+            // arriba - abajo
             if (posY - radio < 55 || posY + radio > alto-55)
             {
                 velocidadY = -velocidadY;
