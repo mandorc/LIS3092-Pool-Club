@@ -15,7 +15,8 @@ namespace Pool_Club
         public int velocidadX;
         public int velocidadY;
         public int velocidadInicial;
-        public Brush color;
+        //public Brush color;
+        public Image Image { get; private set; }
 
         public int PosX
         {
@@ -29,7 +30,7 @@ namespace Pool_Club
             set { posY = value; }
         }
 
-        public Pelota(int x, int y, int r, int vx, int vy, Brush c)
+        public Pelota(int x, int y, int r, int vx, int vy, String color)
         {
             posX = x;
             posY = y;
@@ -37,12 +38,22 @@ namespace Pool_Club
             velocidadX = vx;
             velocidadY = vy;
             velocidadInicial = (int)Math.Sqrt(Math.Pow(velocidadX, 2) + Math.Pow(velocidadY, 2));
-            color = c;
+            switch(color)
+            {
+                case "1":
+                    Image = Resources.pelota1;
+                    break;
+                case "blanca":
+                    Image = Resources.pelotaBlanca; break;
+                default:
+                    Image = Resources.pelota2; break;
+            }
         }
 
         public void Dibujar(Graphics g)
         {
-            g.FillEllipse(color, posX - radio, posY - radio, radio * 2, radio * 2);
+            //g.FillEllipse(color, posX - radio, posY - radio, radio * 2, radio * 2);
+            g.DrawImage(Image, new Rectangle(posX - radio, posY - radio, radio * 2, radio * 2));
         }
 
         public void Mover(int ancho, int alto, List<Pelota> pelotas)

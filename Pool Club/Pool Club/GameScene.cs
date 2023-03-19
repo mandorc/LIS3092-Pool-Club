@@ -36,12 +36,12 @@ namespace Pool_Club
             int ballPosY = pictureBox1.Height / 2;
 
             Random rnd = new Random();
-            Pelota pelota1 = new Pelota(ballPosX, ballPosY, ballRadius, rnd.Next(-10, 10), rnd.Next(-10, 10), Brushes.Yellow);
-            Pelota pelota2 = new Pelota(ballPosX + (2 * ballRadius), ballPosY - ballRadius, ballRadius, rnd.Next(-10, 10), rnd.Next(-10, 10), Brushes.Blue);
-            Pelota pelota3 = new Pelota(ballPosX + (2 * ballRadius), ballPosY + ballRadius, ballRadius, rnd.Next(-10, 10), rnd.Next(-10, 10), Brushes.Red);
+            Pelota pelota1 = new Pelota(ballPosX, ballPosY, ballRadius, rnd.Next(-10, 10), rnd.Next(-10, 10), "1");
+            Pelota pelota2 = new Pelota(ballPosX + (2 * ballRadius), ballPosY - ballRadius, ballRadius, rnd.Next(-10, 10), rnd.Next(-10, 10), "");
+            Pelota pelota3 = new Pelota(ballPosX + (2 * ballRadius), ballPosY + ballRadius, ballRadius, rnd.Next(-10, 10), rnd.Next(-10, 10), "");
 
 
-            Pelota pelotaBlanca = new Pelota(ballPosX-200, ballPosY, ballRadius, 0, 0, Brushes.White);
+            Pelota pelotaBlanca = new Pelota(ballPosX-200, ballPosY, ballRadius, 0, 0, "blanca");
 
 
             pelotas.Add(pelota1);
@@ -211,7 +211,7 @@ namespace Pool_Club
             // Verificar si se ha hecho clic en la pelota blanca
             foreach (Pelota p in pelotas)
             {
-                if (p.color == Brushes.White && Math.Sqrt(Math.Pow(e.X - p.posX, 2) + Math.Pow(e.Y - p.posY, 2)) < p.radio)
+                if (p.Image == Resources.pelotaBlanca && Math.Sqrt(Math.Pow(e.X - p.posX, 2) + Math.Pow(e.Y - p.posY, 2)) < p.radio)
                 {
                     pelotaBlancaSeleccionada = p;
                     arrastrandoPelotaBlanca = true;
