@@ -34,17 +34,37 @@ namespace Pool_Club
 
             // Crear una pelota verde en el centro de la mesa
             int ballRadius = 10;
+            int ballDiameter = ballRadius * 2;
             int ballPosX = pictureBox1.Width / 2;
             int ballPosY = pictureBox1.Height / 2;
 
             Random rnd = new Random();
+            // Primera columna
             Pelota pelota1 = new Pelota(ballPosX, ballPosY, ballRadius, rnd.Next(-10, 10), rnd.Next(-10, 10), "1");
-            Console.WriteLine(ballPosX); //440
-            Console.WriteLine(ballPosY); //210
-            Console.WriteLine(ballRadius); //10
-            Pelota pelota2 = new Pelota(ballPosX + (2 * ballRadius), ballPosY - ballRadius, ballRadius, rnd.Next(-10, 10), rnd.Next(-10, 10), "2");
-            Pelota pelota3 = new Pelota(ballPosX + (2 * ballRadius), ballPosY + ballRadius, ballRadius, rnd.Next(-10, 10), rnd.Next(-10, 10), "3");
+            Console.WriteLine("ball posx:" +ballPosX);
+            Console.WriteLine("ball posy:" + ballPosY);
+            // Segunda columna
+            Pelota pelota2 = new Pelota(ballPosX + ballDiameter, ballPosY - ballRadius, ballRadius, rnd.Next(-10, 10), rnd.Next(-10, 10), "2");
+            Pelota pelota3 = new Pelota(ballPosX + ballDiameter, ballPosY + ballRadius, ballRadius, rnd.Next(-10, 10), rnd.Next(-10, 10), "3");
             // Tercera
+            Pelota pelota4 = new Pelota(ballPosX + (2 * ballDiameter), ballPosY - (2 * ballRadius), ballRadius, rnd.Next(-10, 10), rnd.Next(-10, 10), "4");
+            Pelota pelota5 = new Pelota(ballPosX + (2 * ballDiameter), ballPosY, ballRadius, rnd.Next(-10, 10), rnd.Next(-10, 10), "5");
+            Pelota pelota6 = new Pelota(ballPosX + (2 * ballDiameter), ballPosY + (2 * ballRadius), ballRadius, rnd.Next(-10, 10), rnd.Next(-10, 10), "6");
+            // Cuarta
+            Pelota pelota7 = new Pelota(ballPosX + (3 * ballDiameter), ballPosY - (3 * ballRadius), ballRadius, rnd.Next(-10, 10), rnd.Next(-10, 10), "7");
+            Pelota pelota8 = new Pelota(ballPosX + (3 * ballDiameter), ballPosY - (ballRadius), ballRadius, rnd.Next(-10, 10), rnd.Next(-10, 10), "8");
+            Pelota pelota9 = new Pelota(ballPosX + (3 * ballDiameter), ballPosY - (ballRadius - ballDiameter), ballRadius, rnd.Next(-10, 10), rnd.Next(-10, 10), "9");
+            Pelota pelota10 = new Pelota(ballPosX + (3 * ballDiameter), ballPosY + (ballRadius + ballDiameter), ballRadius, rnd.Next(-10, 10), rnd.Next(-10, 10), "10");
+            // Quinta
+            Pelota pelota11 = new Pelota(ballPosX + (4 * ballDiameter), ballPosY - (4 * ballRadius), ballRadius, rnd.Next(-10, 10), rnd.Next(-10, 10), "11");
+            Pelota pelota12 = new Pelota(ballPosX + (4 * ballDiameter), ballPosY - (2 * ballRadius), ballRadius, rnd.Next(-10, 10), rnd.Next(-10, 10), "12");
+            Pelota pelota13 = new Pelota(ballPosX + (4 * ballDiameter), ballPosY , ballRadius, rnd.Next(-10, 10), rnd.Next(-10, 10), "13");
+            Pelota pelota14 = new Pelota(ballPosX + (4 * ballDiameter), ballPosY +  ballDiameter, ballRadius, rnd.Next(-10, 10), rnd.Next(-10, 10), "14");
+            Pelota pelota15 = new Pelota(ballPosX + (4 * ballDiameter), ballPosY + 2* ballDiameter, ballRadius, rnd.Next(-10, 10), rnd.Next(-10, 10), "15");
+
+
+
+
             //Pelota pelota4 = new Pelota(480, 210, ballRadius, rnd.Next(-10, 10), rnd.Next(-10, 10), "4");
             //Pelota pelota5 = new Pelota(480, 230, ballRadius, rnd.Next(-10, 10), rnd.Next(-10, 10), "5");
             //Pelota pelota6 = new Pelota(480, 190, ballRadius, rnd.Next(-10, 10), rnd.Next(-10, 10), "6");
@@ -65,18 +85,18 @@ namespace Pool_Club
             pelotas.Add(pelota1);
             pelotas.Add(pelota2);
             pelotas.Add(pelota3);
-            //pelotas.Add(pelota4);
-            //pelotas.Add(pelota5);
-            //pelotas.Add(pelota6);
-            //pelotas.Add(pelota7);
-            //pelotas.Add(pelota8);
-            //pelotas.Add(pelota9);
-            //pelotas.Add(pelota10);
-            //pelotas.Add(pelota11);
-            //pelotas.Add(pelota12);
-            //pelotas.Add(pelota13);
-            //pelotas.Add(pelota14);
-            //pelotas.Add(pelota15);
+            pelotas.Add(pelota4);
+            pelotas.Add(pelota5);
+            pelotas.Add(pelota6);
+            pelotas.Add(pelota7);
+            pelotas.Add(pelota8);
+            pelotas.Add(pelota9);
+            pelotas.Add(pelota10);
+            pelotas.Add(pelota11);
+            pelotas.Add(pelota12);
+            pelotas.Add(pelota13);
+            pelotas.Add(pelota14);
+            pelotas.Add(pelota15);
 
             pelotas.Add(pelotaBlanca);
         }
