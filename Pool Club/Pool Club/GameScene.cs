@@ -21,6 +21,8 @@ namespace Pool_Club
         private bool arrastrandoPelotaBlanca = false; // bandera para indicar si se está arrastrando la pelota blanca
         private Point posicionAnteriorMouse; // posición anterior del mouse para calcular la dirección y velocidad del movimiento
 
+        private String[] ordenPelotas = { "pelota1", "pelota2", "pelota3", "pelota4", "pelota5", "pelota6", "pelota7", "pelota8", "pelota9", "pelota10", "pelota11", "pelota12", "pelota13", "pelota14", "pelota15" };
+        private int ordenContador = 1;
         public GameScene()
         {
             InitializeComponent();
@@ -58,8 +60,6 @@ namespace Pool_Club
             Pelota pelota11 = new Pelota(520, 230, ballRadius, rnd.Next(-10, 10), rnd.Next(-10, 10), "11");
             Pelota pelota15 = new Pelota(520, 250, ballRadius, rnd.Next(-10, 10), rnd.Next(-10, 10), "15");
 
-
-
             Pelota pelotaBlanca = new Pelota(ballPosX-200, ballPosY, ballRadius, 0, 0, "blanca");
 
             pelotas.Add(pelota1);
@@ -79,7 +79,6 @@ namespace Pool_Club
             pelotas.Add(pelota15);
 
             pelotas.Add(pelotaBlanca);
-
         }
 
         private void GameScene_Load(object sender, EventArgs e)
