@@ -21,6 +21,8 @@ namespace Pool_Club
         private bool arrastrandoPelotaBlanca = false; // bandera para indicar si se está arrastrando la pelota blanca
         private Point posicionAnteriorMouse; // posición anterior del mouse para calcular la dirección y velocidad del movimiento
 
+        private static String[] ordenPelotas = { "pelota 1", "pelota 2", "pelota 3", "pelota 4", "pelota 5", "pelota 6", "pelota 7", "pelota 8", "pelota 9", "pelota 10", "pelota 11", "pelota 12", "pelota 13", "pelota 14", "pelota 15" };
+        private static int ordenContador = 0;
         public GameScene()
         {
             InitializeComponent();
@@ -32,24 +34,71 @@ namespace Pool_Club
 
             // Crear una pelota verde en el centro de la mesa
             int ballRadius = 10;
+            int ballDiameter = ballRadius * 2;
             int ballPosX = pictureBox1.Width / 2;
             int ballPosY = pictureBox1.Height / 2;
 
             Random rnd = new Random();
-            Pelota pelota1 = new Pelota(ballPosX, ballPosY, ballRadius, rnd.Next(-10, 10), rnd.Next(-10, 10), Brushes.Yellow);
-            Pelota pelota2 = new Pelota(ballPosX + (2 * ballRadius), ballPosY - ballRadius, ballRadius, rnd.Next(-10, 10), rnd.Next(-10, 10), Brushes.Blue);
-            Pelota pelota3 = new Pelota(ballPosX + (2 * ballRadius), ballPosY + ballRadius, ballRadius, rnd.Next(-10, 10), rnd.Next(-10, 10), Brushes.Red);
+            // Primera columna
+            Pelota pelota1 = new Pelota(ballPosX, ballPosY, ballRadius, rnd.Next(-10, 10), rnd.Next(-10, 10), "1");
+            Console.WriteLine("ball posx:" +ballPosX);
+            Console.WriteLine("ball posy:" + ballPosY);
+            // Segunda columna
+            Pelota pelota2 = new Pelota(ballPosX + ballDiameter, ballPosY - ballRadius, ballRadius, rnd.Next(-10, 10), rnd.Next(-10, 10), "2");
+            Pelota pelota3 = new Pelota(ballPosX + ballDiameter, ballPosY + ballRadius, ballRadius, rnd.Next(-10, 10), rnd.Next(-10, 10), "3");
+            // Tercera
+            Pelota pelota4 = new Pelota(ballPosX + (2 * ballDiameter), ballPosY - (2 * ballRadius), ballRadius, rnd.Next(-10, 10), rnd.Next(-10, 10), "4");
+            Pelota pelota5 = new Pelota(ballPosX + (2 * ballDiameter), ballPosY, ballRadius, rnd.Next(-10, 10), rnd.Next(-10, 10), "5");
+            Pelota pelota6 = new Pelota(ballPosX + (2 * ballDiameter), ballPosY + (2 * ballRadius), ballRadius, rnd.Next(-10, 10), rnd.Next(-10, 10), "6");
+            // Cuarta
+            Pelota pelota7 = new Pelota(ballPosX + (3 * ballDiameter), ballPosY - (3 * ballRadius), ballRadius, rnd.Next(-10, 10), rnd.Next(-10, 10), "7");
+            Pelota pelota8 = new Pelota(ballPosX + (3 * ballDiameter), ballPosY - (ballRadius), ballRadius, rnd.Next(-10, 10), rnd.Next(-10, 10), "8");
+            Pelota pelota9 = new Pelota(ballPosX + (3 * ballDiameter), ballPosY - (ballRadius - ballDiameter), ballRadius, rnd.Next(-10, 10), rnd.Next(-10, 10), "9");
+            Pelota pelota10 = new Pelota(ballPosX + (3 * ballDiameter), ballPosY + (ballRadius + ballDiameter), ballRadius, rnd.Next(-10, 10), rnd.Next(-10, 10), "10");
+            // Quinta
+            Pelota pelota11 = new Pelota(ballPosX + (4 * ballDiameter), ballPosY - (4 * ballRadius), ballRadius, rnd.Next(-10, 10), rnd.Next(-10, 10), "11");
+            Pelota pelota12 = new Pelota(ballPosX + (4 * ballDiameter), ballPosY - (2 * ballRadius), ballRadius, rnd.Next(-10, 10), rnd.Next(-10, 10), "12");
+            Pelota pelota13 = new Pelota(ballPosX + (4 * ballDiameter), ballPosY , ballRadius, rnd.Next(-10, 10), rnd.Next(-10, 10), "13");
+            Pelota pelota14 = new Pelota(ballPosX + (4 * ballDiameter), ballPosY +  ballDiameter, ballRadius, rnd.Next(-10, 10), rnd.Next(-10, 10), "14");
+            Pelota pelota15 = new Pelota(ballPosX + (4 * ballDiameter), ballPosY + 2* ballDiameter, ballRadius, rnd.Next(-10, 10), rnd.Next(-10, 10), "15");
 
 
-            Pelota pelotaBlanca = new Pelota(ballPosX-200, ballPosY, ballRadius, 0, 0, Brushes.White);
 
+
+            //Pelota pelota4 = new Pelota(480, 210, ballRadius, rnd.Next(-10, 10), rnd.Next(-10, 10), "4");
+            //Pelota pelota5 = new Pelota(480, 230, ballRadius, rnd.Next(-10, 10), rnd.Next(-10, 10), "5");
+            //Pelota pelota6 = new Pelota(480, 190, ballRadius, rnd.Next(-10, 10), rnd.Next(-10, 10), "6");
+            // Cuarta
+            //Pelota pelota9 = new Pelota(500, 180, ballRadius, rnd.Next(-10, 10), rnd.Next(-10, 10), "9");
+            //Pelota pelota8 = new Pelota(500, 200, ballRadius, rnd.Next(-10, 10), rnd.Next(-10, 10), "8");
+            //Pelota pelota7 = new Pelota(500, 220, ballRadius, rnd.Next(-10, 10), rnd.Next(-10, 10), "7");
+            //Pelota pelota10 = new Pelota(500, 240, ballRadius, rnd.Next(-10, 10), rnd.Next(-10, 10), "10");
+            // Quinta
+            //Pelota pelota14 = new Pelota(520, 170, ballRadius, rnd.Next(-10, 10), rnd.Next(-10, 10), "14");
+            //Pelota pelota13 = new Pelota(520, 190, ballRadius, rnd.Next(-10, 10), rnd.Next(-10, 10), "13");
+            //Pelota pelota12 = new Pelota(520, 210, ballRadius, rnd.Next(-10, 10), rnd.Next(-10, 10), "12");
+            //Pelota pelota11 = new Pelota(520, 230, ballRadius, rnd.Next(-10, 10), rnd.Next(-10, 10), "11");
+            //Pelota pelota15 = new Pelota(520, 250, ballRadius, rnd.Next(-10, 10), rnd.Next(-10, 10), "15");
+
+            Pelota pelotaBlanca = new Pelota(ballPosX-200, ballPosY, ballRadius, 0, 0, "blanca");
 
             pelotas.Add(pelota1);
             pelotas.Add(pelota2);
             pelotas.Add(pelota3);
+            pelotas.Add(pelota4);
+            pelotas.Add(pelota5);
+            pelotas.Add(pelota6);
+            pelotas.Add(pelota7);
+            pelotas.Add(pelota8);
+            pelotas.Add(pelota9);
+            pelotas.Add(pelota10);
+            pelotas.Add(pelota11);
+            pelotas.Add(pelota12);
+            pelotas.Add(pelota13);
+            pelotas.Add(pelota14);
+            pelotas.Add(pelota15);
 
             pelotas.Add(pelotaBlanca);
-
         }
 
         private void GameScene_Load(object sender, EventArgs e)
@@ -122,6 +171,7 @@ namespace Pool_Club
             // Mover las pelotas
             foreach (Pelota p in pelotas)
             {
+                
                 p.Mover(pictureBox1.Width, pictureBox1.Height, pelotas);
 
                 // Comprobar si la pelota ha desaparecido en un agujero
@@ -129,9 +179,19 @@ namespace Pool_Club
                 {
                     if (!pelotaDesaparecida[i] && EstaEnAgujero(p, i))
                     {
-                        pelotaDesaparecida[i] = true;
+                        Console.WriteLine(p.name);
+                        // Comprobamos si va en el orden que debe ir
+                        if (ordenPelotas[ordenContador] == p.name) {
+                            ordenContador++;
+                        } else
+                        {
+                            this.Close();
+                        }
+
+                        //pelotaDesaparecida[i] = true;
                         p.PosX = -100; // establecer la posición de la pelota fuera del área visible del PictureBox
                         p.PosY = -100;
+                        //pelotaDesaparecida[i] = false;
                     }
                 }
 
@@ -208,10 +268,12 @@ namespace Pool_Club
 
         private void pictureBox1_MouseDown(object sender, MouseEventArgs e)
         {
-            // Verificar si se ha hecho clic en la pelota blanca
+            timer1.Enabled = true;
+
+            // Verificar si el clic del mouse está en la pelota blanca
             foreach (Pelota p in pelotas)
             {
-                if (p.color == Brushes.White && Math.Sqrt(Math.Pow(e.X - p.posX, 2) + Math.Pow(e.Y - p.posY, 2)) < p.radio)
+                if (p.bcolor == Brushes.White && Math.Sqrt(Math.Pow(e.X - p.posX, 2) + Math.Pow(e.Y - p.posY, 2)) < p.radio)
                 {
                     pelotaBlancaSeleccionada = p;
                     arrastrandoPelotaBlanca = true;
@@ -226,21 +288,15 @@ namespace Pool_Club
             // Verificar si se está arrastrando la pelota blanca
             if (arrastrandoPelotaBlanca)
             {
-                // Calcular la dirección y velocidad del movimiento de la pelota blanca
-                int direccionX = e.X - posicionAnteriorMouse.X;
-                int direccionY = e.Y - posicionAnteriorMouse.Y;
-                int velocidad = Math.Min(20, (int)Math.Sqrt(Math.Pow(direccionX, 2) + Math.Pow(direccionY, 2)));
-
-                // Actualizar la posición de la pelota blanca
-                pelotaBlancaSeleccionada.velocidadX = direccionX * velocidad / 20;
-                pelotaBlancaSeleccionada.velocidadY = direccionY * velocidad / 20;
-                pelotaBlancaSeleccionada.Mover(pictureBox1.Width, pictureBox1.Height, pelotas);
-
-                // Redibujar el PictureBox
-                pictureBox1.Refresh();
-
-                // Actualizar la posición anterior del mouse
+                // Calcular la nueva posición de la pelota blanca
+                int deltaX = e.Location.X - posicionAnteriorMouse.X;
+                int deltaY = e.Location.Y - posicionAnteriorMouse.Y;
+                pelotaBlancaSeleccionada.PosX += deltaX;
+                pelotaBlancaSeleccionada.PosY += deltaY;
                 posicionAnteriorMouse = e.Location;
+
+                // Volver a dibujar el PictureBox
+                pictureBox1.Refresh();
             }
         }
 
