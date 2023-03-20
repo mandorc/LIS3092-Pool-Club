@@ -23,12 +23,17 @@ namespace Pool_Club
 
         private static String[] ordenPelotas = { "pelota 1", "pelota 2", "pelota 3", "pelota 4", "pelota 5", "pelota 6", "pelota 7", "pelota 8", "pelota 9", "pelota 10", "pelota 11", "pelota 12", "pelota 13", "pelota 14", "pelota 15" };
         private static int ordenContador = 0;
+
+        private static int level;
         public GameScene()
         {
             InitializeComponent();
 
             // Dibujar la mesa de billar
             DrawPoolTable(pictureBox1.CreateGraphics());
+
+            // Obtener el nivel que ha seleccionado el usuario
+            level = 1;
 
             pelotas = new List<Pelota>();
 

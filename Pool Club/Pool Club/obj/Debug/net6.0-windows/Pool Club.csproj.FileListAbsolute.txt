@@ -37,3 +37,6 @@ C:\Users\arman\Documents\GitHub\Proyecto 2 videojuegos\LIS3092-Pool-Club\Pool Cl
 C:\Users\arman\Documents\GitHub\Proyecto 2 videojuegos\LIS3092-Pool-Club\Pool Club\Pool Club\obj\Debug\net6.0-windows\Pool Club.genruntimeconfig.cache
 C:\Users\arman\Documents\GitHub\Proyecto 2 videojuegos\LIS3092-Pool-Club\Pool Club\Pool Club\obj\Debug\net6.0-windows\ref\Pool Club.dll
 C:\Users\arman\Documents\GitHub\Proyecto 2 videojuegos\LIS3092-Pool-Club\Pool Club\Pool Club\obj\Debug\net6.0-windows\Pool_Club.Resources.resources
+C:\Users\arman\Documents\GitHub\Proyecto 2 videojuegos\LIS3092-Pool-Club\Pool Club\Pool Club\obj\Debug\net6.0-windows\Pool_Club.Settings.resources
+C:\Users\arman\Documents\GitHub\Proyecto 2 videojuegos\LIS3092-Pool-Club\Pool Club\Pool Club\bin\Debug\net6.0-windows\Pool Club.dll.config
+C:\Users\arman\Documents\GitHub\Proyecto 2 videojuegos\LIS3092-Pool-Club\Pool Club\Pool Club\obj\Debug\net6.0-windows\Pool_Club.Win.resources
