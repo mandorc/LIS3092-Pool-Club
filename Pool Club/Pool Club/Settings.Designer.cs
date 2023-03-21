@@ -60,6 +60,7 @@
             this.startButtom.TabIndex = 1;
             this.startButtom.Text = "Save";
             this.startButtom.UseVisualStyleBackColor = false;
+            this.startButtom.Click += new System.EventHandler(this.startButtom_Click);
             // 
             // button1
             // 
@@ -73,6 +74,7 @@
             this.button1.TabIndex = 2;
             this.button1.Text = "Cancel";
             this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // label1
             // 
@@ -95,6 +97,7 @@
             this.radioButton1.TabStop = true;
             this.radioButton1.Text = "Easy";
             this.radioButton1.UseVisualStyleBackColor = true;
+            this.radioButton1.CheckedChanged += new System.EventHandler(this.radioButton1_CheckedChanged);
             // 
             // radioButton2
             // 
@@ -133,6 +136,7 @@
             this.Name = "Settings";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Settings";
+            this.Load += new System.EventHandler(this.Settings_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
