@@ -4,7 +4,16 @@
     <Compile Update="GameScene.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="LoseWindow.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="MenuFrame.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Settings.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Win.cs">
       <SubType>Form</SubType>
     </Compile>
   </ItemGroup>

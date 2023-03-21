@@ -22,13 +22,20 @@ namespace Pool_Club
         private Point posicionAnteriorMouse; // posición anterior del mouse para calcular la dirección y velocidad del movimiento
 
         private static String[] ordenPelotas = { "pelota 1", "pelota 2", "pelota 3", "pelota 4", "pelota 5", "pelota 6", "pelota 7", "pelota 8", "pelota 9", "pelota 10", "pelota 11", "pelota 12", "pelota 13", "pelota 14", "pelota 15" };
+    
         private static int ordenContador = 0;
+        private static int limiteContador;
+
+        private Configuration settings;
+
         public GameScene()
         {
             InitializeComponent();
 
             // Dibujar la mesa de billar
             DrawPoolTable(pictureBox1.CreateGraphics());
+
+            settings = Configuration.Default;
 
             pelotas = new List<Pelota>();
 
@@ -39,28 +46,90 @@ namespace Pool_Club
             int ballPosY = pictureBox1.Height / 2;
 
             Random rnd = new Random();
-            // Primera columna
-            Pelota pelota1 = new Pelota(ballPosX, ballPosY, ballRadius, rnd.Next(-10, 10), rnd.Next(-10, 10), "1");
-            Console.WriteLine("ball posx:" +ballPosX);
-            Console.WriteLine("ball posy:" + ballPosY);
-            // Segunda columna
-            Pelota pelota2 = new Pelota(ballPosX + ballDiameter, ballPosY - ballRadius, ballRadius, rnd.Next(-10, 10), rnd.Next(-10, 10), "2");
-            Pelota pelota3 = new Pelota(ballPosX + ballDiameter, ballPosY + ballRadius, ballRadius, rnd.Next(-10, 10), rnd.Next(-10, 10), "3");
-            // Tercera
-            Pelota pelota4 = new Pelota(ballPosX + (2 * ballDiameter), ballPosY - (2 * ballRadius), ballRadius, rnd.Next(-10, 10), rnd.Next(-10, 10), "4");
-            Pelota pelota5 = new Pelota(ballPosX + (2 * ballDiameter), ballPosY, ballRadius, rnd.Next(-10, 10), rnd.Next(-10, 10), "5");
-            Pelota pelota6 = new Pelota(ballPosX + (2 * ballDiameter), ballPosY + (2 * ballRadius), ballRadius, rnd.Next(-10, 10), rnd.Next(-10, 10), "6");
-            // Cuarta
-            Pelota pelota7 = new Pelota(ballPosX + (3 * ballDiameter), ballPosY - (3 * ballRadius), ballRadius, rnd.Next(-10, 10), rnd.Next(-10, 10), "7");
-            Pelota pelota8 = new Pelota(ballPosX + (3 * ballDiameter), ballPosY - (ballRadius), ballRadius, rnd.Next(-10, 10), rnd.Next(-10, 10), "8");
-            Pelota pelota9 = new Pelota(ballPosX + (3 * ballDiameter), ballPosY - (ballRadius - ballDiameter), ballRadius, rnd.Next(-10, 10), rnd.Next(-10, 10), "9");
-            Pelota pelota10 = new Pelota(ballPosX + (3 * ballDiameter), ballPosY + (ballRadius + ballDiameter), ballRadius, rnd.Next(-10, 10), rnd.Next(-10, 10), "10");
-            // Quinta
-            Pelota pelota11 = new Pelota(ballPosX + (4 * ballDiameter), ballPosY - (4 * ballRadius), ballRadius, rnd.Next(-10, 10), rnd.Next(-10, 10), "11");
-            Pelota pelota12 = new Pelota(ballPosX + (4 * ballDiameter), ballPosY - (2 * ballRadius), ballRadius, rnd.Next(-10, 10), rnd.Next(-10, 10), "12");
-            Pelota pelota13 = new Pelota(ballPosX + (4 * ballDiameter), ballPosY , ballRadius, rnd.Next(-10, 10), rnd.Next(-10, 10), "13");
-            Pelota pelota14 = new Pelota(ballPosX + (4 * ballDiameter), ballPosY +  ballDiameter, ballRadius, rnd.Next(-10, 10), rnd.Next(-10, 10), "14");
-            Pelota pelota15 = new Pelota(ballPosX + (4 * ballDiameter), ballPosY + 2* ballDiameter, ballRadius, rnd.Next(-10, 10), rnd.Next(-10, 10), "15");
+
+            // Obtener el nivel que ha seleccionado el usuario
+            if (settings.Easy)
+            {
+                // Primera columna
+                Pelota pelota1 = new Pelota(ballPosX, ballPosY, ballRadius, rnd.Next(-10, 10), rnd.Next(-10, 10), "1");
+                Console.WriteLine("ball posx:" + ballPosX);
+                Console.WriteLine("ball posy:" + ballPosY);
+                // Segunda columna
+                Pelota pelota2 = new Pelota(ballPosX + ballDiameter, ballPosY - ballRadius, ballRadius, rnd.Next(-10, 10), rnd.Next(-10, 10), "2");
+                Pelota pelota3 = new Pelota(ballPosX + ballDiameter, ballPosY + ballRadius, ballRadius, rnd.Next(-10, 10), rnd.Next(-10, 10), "3");
+
+                pelotas.Add(pelota1);
+                pelotas.Add(pelota2);
+                pelotas.Add(pelota3);
+
+                limiteContador = 3;
+            } else if (settings.Normal)
+            {
+                // Primera columna
+                Pelota pelota1 = new Pelota(ballPosX, ballPosY, ballRadius, rnd.Next(-10, 10), rnd.Next(-10, 10), "1");
+                Console.WriteLine("ball posx:" + ballPosX);
+                Console.WriteLine("ball posy:" + ballPosY);
+                // Segunda columna
+                Pelota pelota2 = new Pelota(ballPosX + ballDiameter, ballPosY - ballRadius, ballRadius, rnd.Next(-10, 10), rnd.Next(-10, 10), "2");
+                Pelota pelota3 = new Pelota(ballPosX + ballDiameter, ballPosY + ballRadius, ballRadius, rnd.Next(-10, 10), rnd.Next(-10, 10), "3");
+                // Tercera
+                Pelota pelota4 = new Pelota(ballPosX + (2 * ballDiameter), ballPosY - (2 * ballRadius), ballRadius, rnd.Next(-10, 10), rnd.Next(-10, 10), "4");
+                Pelota pelota5 = new Pelota(ballPosX + (2 * ballDiameter), ballPosY, ballRadius, rnd.Next(-10, 10), rnd.Next(-10, 10), "5");
+                Pelota pelota6 = new Pelota(ballPosX + (2 * ballDiameter), ballPosY + (2 * ballRadius), ballRadius, rnd.Next(-10, 10), rnd.Next(-10, 10), "6");
+
+                pelotas.Add(pelota1);
+                pelotas.Add(pelota2);
+                pelotas.Add(pelota3);
+                pelotas.Add(pelota4);
+                pelotas.Add(pelota5);
+                pelotas.Add(pelota6);
+
+                limiteContador = 6;
+            } else
+            {
+                // Primera columna
+                Pelota pelota1 = new Pelota(ballPosX, ballPosY, ballRadius, rnd.Next(-10, 10), rnd.Next(-10, 10), "1");
+                Console.WriteLine("ball posx:" + ballPosX);
+                Console.WriteLine("ball posy:" + ballPosY);
+                // Segunda columna
+                Pelota pelota2 = new Pelota(ballPosX + ballDiameter, ballPosY - ballRadius, ballRadius, rnd.Next(-10, 10), rnd.Next(-10, 10), "2");
+                Pelota pelota3 = new Pelota(ballPosX + ballDiameter, ballPosY + ballRadius, ballRadius, rnd.Next(-10, 10), rnd.Next(-10, 10), "3");
+                // Tercera
+                Pelota pelota4 = new Pelota(ballPosX + (2 * ballDiameter), ballPosY - (2 * ballRadius), ballRadius, rnd.Next(-10, 10), rnd.Next(-10, 10), "4");
+                Pelota pelota5 = new Pelota(ballPosX + (2 * ballDiameter), ballPosY, ballRadius, rnd.Next(-10, 10), rnd.Next(-10, 10), "5");
+                Pelota pelota6 = new Pelota(ballPosX + (2 * ballDiameter), ballPosY + (2 * ballRadius), ballRadius, rnd.Next(-10, 10), rnd.Next(-10, 10), "6");
+                // Cuarta
+                Pelota pelota7 = new Pelota(ballPosX + (3 * ballDiameter), ballPosY - (3 * ballRadius), ballRadius, rnd.Next(-10, 10), rnd.Next(-10, 10), "7");
+                Pelota pelota8 = new Pelota(ballPosX + (3 * ballDiameter), ballPosY - (ballRadius), ballRadius, rnd.Next(-10, 10), rnd.Next(-10, 10), "8");
+                Pelota pelota9 = new Pelota(ballPosX + (3 * ballDiameter), ballPosY - (ballRadius - ballDiameter), ballRadius, rnd.Next(-10, 10), rnd.Next(-10, 10), "9");
+                Pelota pelota10 = new Pelota(ballPosX + (3 * ballDiameter), ballPosY + (ballRadius + ballDiameter), ballRadius, rnd.Next(-10, 10), rnd.Next(-10, 10), "10");
+                // Quinta
+                Pelota pelota11 = new Pelota(ballPosX + (4 * ballDiameter), ballPosY - (4 * ballRadius), ballRadius, rnd.Next(-10, 10), rnd.Next(-10, 10), "11");
+                Pelota pelota12 = new Pelota(ballPosX + (4 * ballDiameter), ballPosY - (2 * ballRadius), ballRadius, rnd.Next(-10, 10), rnd.Next(-10, 10), "12");
+                Pelota pelota13 = new Pelota(ballPosX + (4 * ballDiameter), ballPosY, ballRadius, rnd.Next(-10, 10), rnd.Next(-10, 10), "13");
+                Pelota pelota14 = new Pelota(ballPosX + (4 * ballDiameter), ballPosY + ballDiameter, ballRadius, rnd.Next(-10, 10), rnd.Next(-10, 10), "14");
+                Pelota pelota15 = new Pelota(ballPosX + (4 * ballDiameter), ballPosY + 2 * ballDiameter, ballRadius, rnd.Next(-10, 10), rnd.Next(-10, 10), "15");
+
+                pelotas.Add(pelota1);
+                pelotas.Add(pelota2);
+                pelotas.Add(pelota3);
+                pelotas.Add(pelota4);
+                pelotas.Add(pelota5);
+                pelotas.Add(pelota6);
+                pelotas.Add(pelota7);
+                pelotas.Add(pelota8);
+                pelotas.Add(pelota9);
+                pelotas.Add(pelota10);
+                pelotas.Add(pelota11);
+                pelotas.Add(pelota12);
+                pelotas.Add(pelota13);
+                pelotas.Add(pelota14);
+                pelotas.Add(pelota15);
+
+                limiteContador = 15;
+            }
+
+            
 
 
 
@@ -82,21 +151,7 @@ namespace Pool_Club
 
             Pelota pelotaBlanca = new Pelota(ballPosX-200, ballPosY, ballRadius, 0, 0, "blanca");
 
-            pelotas.Add(pelota1);
-            pelotas.Add(pelota2);
-            pelotas.Add(pelota3);
-            pelotas.Add(pelota4);
-            pelotas.Add(pelota5);
-            pelotas.Add(pelota6);
-            pelotas.Add(pelota7);
-            pelotas.Add(pelota8);
-            pelotas.Add(pelota9);
-            pelotas.Add(pelota10);
-            pelotas.Add(pelota11);
-            pelotas.Add(pelota12);
-            pelotas.Add(pelota13);
-            pelotas.Add(pelota14);
-            pelotas.Add(pelota15);
+            
 
             pelotas.Add(pelotaBlanca);
         }
@@ -183,8 +238,16 @@ namespace Pool_Club
                         // Comprobamos si va en el orden que debe ir
                         if (ordenPelotas[ordenContador] == p.name) {
                             ordenContador++;
+                            if (ordenContador == limiteContador)
+                            {
+                                Win winWindow = new Win();
+                                winWindow.Show();
+                                this.Close();
+                            }
                         } else
                         {
+                            LoseWindow loseWindow = new LoseWindow();
+                            loseWindow.Show();
                             this.Close();
                         }
 

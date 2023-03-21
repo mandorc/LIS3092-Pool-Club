@@ -12,5 +12,11 @@ namespace Pool_Club
             GameScene gamescene = new GameScene();
             gamescene.Show();
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Settings settings = new Settings();
+            settings.Show();
+        }
     }
 }
