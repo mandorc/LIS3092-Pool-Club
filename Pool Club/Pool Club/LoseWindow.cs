@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace Pool_Club
 {
-    public partial class Win : Form
+    public partial class LoseWindow : Form
     {
-        public Win()
+        public LoseWindow()
         {
             InitializeComponent();
         }

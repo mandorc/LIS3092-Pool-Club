@@ -190,6 +190,8 @@ namespace Pool_Club
                             ordenContador++;
                         } else
                         {
+                            LoseWindow loseWindow = new LoseWindow();
+                            loseWindow.Show();
                             this.Close();
                         }
 

@@ -1,6 +1,6 @@
 ﻿namespace Pool_Club
 {
-    partial class Win
+    partial class LoseWindow
     {
         /// <summary>
         /// Required designer variable.
@@ -35,10 +35,10 @@
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Image = global::Pool_Club.Resources.win_window;
-            this.pictureBox1.Location = new System.Drawing.Point(-1, -1);
+            this.pictureBox1.Image = global::Pool_Club.Resources.lose_window;
+            this.pictureBox1.Location = new System.Drawing.Point(-2, -2);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(394, 481);
+            this.pictureBox1.Size = new System.Drawing.Size(347, 455);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
@@ -46,25 +46,26 @@
             // button1
             // 
             this.button1.BackColor = System.Drawing.Color.White;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.button1.Location = new System.Drawing.Point(97, 421);
+            this.button1.Location = new System.Drawing.Point(70, 380);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(210, 47);
-            this.button1.TabIndex = 1;
+            this.button1.TabIndex = 2;
             this.button1.Text = "Back to menu";
             this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // Win
+            // LoseWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(389, 480);
+            this.ClientSize = new System.Drawing.Size(342, 450);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.pictureBox1);
-            this.Name = "Win";
+            this.Name = "LoseWindow";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Win";
+            this.Text = "LoseWindow";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
