@@ -129,25 +129,7 @@ namespace Pool_Club
                 limiteContador = 15;
             }
 
-            
 
-
-
-
-            //Pelota pelota4 = new Pelota(480, 210, ballRadius, rnd.Next(-10, 10), rnd.Next(-10, 10), "4");
-            //Pelota pelota5 = new Pelota(480, 230, ballRadius, rnd.Next(-10, 10), rnd.Next(-10, 10), "5");
-            //Pelota pelota6 = new Pelota(480, 190, ballRadius, rnd.Next(-10, 10), rnd.Next(-10, 10), "6");
-            // Cuarta
-            //Pelota pelota9 = new Pelota(500, 180, ballRadius, rnd.Next(-10, 10), rnd.Next(-10, 10), "9");
-            //Pelota pelota8 = new Pelota(500, 200, ballRadius, rnd.Next(-10, 10), rnd.Next(-10, 10), "8");
-            //Pelota pelota7 = new Pelota(500, 220, ballRadius, rnd.Next(-10, 10), rnd.Next(-10, 10), "7");
-            //Pelota pelota10 = new Pelota(500, 240, ballRadius, rnd.Next(-10, 10), rnd.Next(-10, 10), "10");
-            // Quinta
-            //Pelota pelota14 = new Pelota(520, 170, ballRadius, rnd.Next(-10, 10), rnd.Next(-10, 10), "14");
-            //Pelota pelota13 = new Pelota(520, 190, ballRadius, rnd.Next(-10, 10), rnd.Next(-10, 10), "13");
-            //Pelota pelota12 = new Pelota(520, 210, ballRadius, rnd.Next(-10, 10), rnd.Next(-10, 10), "12");
-            //Pelota pelota11 = new Pelota(520, 230, ballRadius, rnd.Next(-10, 10), rnd.Next(-10, 10), "11");
-            //Pelota pelota15 = new Pelota(520, 250, ballRadius, rnd.Next(-10, 10), rnd.Next(-10, 10), "15");
 
             Pelota pelotaBlanca = new Pelota(ballPosX-200, ballPosY, ballRadius, 0, 0, "blanca");
 
@@ -361,6 +343,8 @@ namespace Pool_Club
                 // Volver a dibujar el PictureBox
                 pictureBox1.Refresh();
             }
+
+            
         }
 
         private void pictureBox1_MouseUp(object sender, MouseEventArgs e)
