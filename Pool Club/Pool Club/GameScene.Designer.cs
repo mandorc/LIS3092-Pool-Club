@@ -31,7 +31,9 @@
             this.components = new System.ComponentModel.Container();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.mousePic = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.mousePic)).BeginInit();
             this.SuspendLayout();
             // 
             // pictureBox1
@@ -46,6 +48,8 @@
             this.pictureBox1.TabStop = false;
             this.pictureBox1.Paint += new System.Windows.Forms.PaintEventHandler(this.pictureBox1_Paint);
             this.pictureBox1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pictureBox1_MouseDown);
+            this.pictureBox1.MouseEnter += new System.EventHandler(this.pictureBox1_MouseEnter);
+            this.pictureBox1.MouseLeave += new System.EventHandler(this.pictureBox1_MouseLeave);
             this.pictureBox1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.pictureBox1_MouseMove);
             this.pictureBox1.MouseUp += new System.Windows.Forms.MouseEventHandler(this.pictureBox1_MouseUp);
             // 
@@ -53,11 +57,20 @@
             // 
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
+            // mousePic
+            // 
+            this.mousePic.Location = new System.Drawing.Point(208, 202);
+            this.mousePic.Name = "mousePic";
+            this.mousePic.Size = new System.Drawing.Size(41, 12);
+            this.mousePic.TabIndex = 1;
+            this.mousePic.TabStop = false;
+            // 
             // GameScene
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(880, 420);
+            this.Controls.Add(this.mousePic);
             this.Controls.Add(this.pictureBox1);
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "GameScene";
@@ -65,6 +78,7 @@
             this.Text = "GameScene";
             this.Load += new System.EventHandler(this.GameScene_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.mousePic)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -73,5 +87,6 @@
 
         private PictureBox pictureBox1;
         private System.Windows.Forms.Timer timer1;
+        private PictureBox mousePic;
     }
 }

@@ -344,13 +344,31 @@ namespace Pool_Club
                 pictureBox1.Refresh();
             }
 
-            
+            // Mouse pointer
+            int x = e.X - (mousePic.Width / 2); // Calcula la posición x del mousePic
+            int y = e.Y - (mousePic.Height / 2); // Calcula la posición y del mousePic
+            mousePic.Location = new Point(x, y); // Establece la posición del mousePic
         }
 
         private void pictureBox1_MouseUp(object sender, MouseEventArgs e)
         {
             // Indicar que se ha soltado la pelota blanca
             arrastrandoPelotaBlanca = false;
+
+        }
+
+        private void pictureBox1_MouseEnter(object sender, EventArgs e)
+        {
+            Cursor.Hide(); // Oculta el cursor del mouse
+            mousePic.Visible = true; // Muestra el PictureBox del cursor personalizado
+            Cursor = Cursors.Cross; // Cambia el cursor del mouse a una cruz
+        }
+
+        private void pictureBox1_MouseLeave(object sender, EventArgs e)
+        {
+            Cursor.Show(); // Muestra el cursor del mouse
+            mousePic.Visible = false; // Oculta el PictureBox del cursor personalizado
+            Cursor = Cursors.Default; // Restablece el cursor del mouse al predeterminado
         }
     }
 }
