@@ -52,8 +52,7 @@ namespace Pool_Club
             {
                 // Primera columna
                 Pelota pelota1 = new Pelota(ballPosX, ballPosY, ballRadius, rnd.Next(-10, 10), rnd.Next(-10, 10), "1");
-                Console.WriteLine("ball posx:" + ballPosX);
-                Console.WriteLine("ball posy:" + ballPosY);
+
                 // Segunda columna
                 Pelota pelota2 = new Pelota(ballPosX + ballDiameter, ballPosY - ballRadius, ballRadius, rnd.Next(-10, 10), rnd.Next(-10, 10), "2");
                 Pelota pelota3 = new Pelota(ballPosX + ballDiameter, ballPosY + ballRadius, ballRadius, rnd.Next(-10, 10), rnd.Next(-10, 10), "3");
@@ -67,8 +66,7 @@ namespace Pool_Club
             {
                 // Primera columna
                 Pelota pelota1 = new Pelota(ballPosX, ballPosY, ballRadius, rnd.Next(-10, 10), rnd.Next(-10, 10), "1");
-                Console.WriteLine("ball posx:" + ballPosX);
-                Console.WriteLine("ball posy:" + ballPosY);
+
                 // Segunda columna
                 Pelota pelota2 = new Pelota(ballPosX + ballDiameter, ballPosY - ballRadius, ballRadius, rnd.Next(-10, 10), rnd.Next(-10, 10), "2");
                 Pelota pelota3 = new Pelota(ballPosX + ballDiameter, ballPosY + ballRadius, ballRadius, rnd.Next(-10, 10), rnd.Next(-10, 10), "3");
@@ -89,8 +87,7 @@ namespace Pool_Club
             {
                 // Primera columna
                 Pelota pelota1 = new Pelota(ballPosX, ballPosY, ballRadius, rnd.Next(-10, 10), rnd.Next(-10, 10), "1");
-                Console.WriteLine("ball posx:" + ballPosX);
-                Console.WriteLine("ball posy:" + ballPosY);
+
                 // Segunda columna
                 Pelota pelota2 = new Pelota(ballPosX + ballDiameter, ballPosY - ballRadius, ballRadius, rnd.Next(-10, 10), rnd.Next(-10, 10), "2");
                 Pelota pelota3 = new Pelota(ballPosX + ballDiameter, ballPosY + ballRadius, ballRadius, rnd.Next(-10, 10), rnd.Next(-10, 10), "3");
@@ -216,7 +213,7 @@ namespace Pool_Club
                 {
                     if (!pelotaDesaparecida[i] && EstaEnAgujero(p, i))
                     {
-                        Console.WriteLine(p.name);
+
                         // Comprobamos si va en el orden que debe ir
                         if (ordenPelotas[ordenContador] == p.name) {
                             ordenContador++;
@@ -344,13 +341,31 @@ namespace Pool_Club
                 pictureBox1.Refresh();
             }
 
-            
+            // Mouse pointer
+            int x = e.X - (mousePic.Width / 2); // Calcula la posición x del mousePic
+            int y = e.Y - (mousePic.Height / 2); // Calcula la posición y del mousePic
+            mousePic.Location = new Point(x, y); // Establece la posición del mousePic
         }
 
         private void pictureBox1_MouseUp(object sender, MouseEventArgs e)
         {
             // Indicar que se ha soltado la pelota blanca
             arrastrandoPelotaBlanca = false;
+
+        }
+
+        private void pictureBox1_MouseEnter(object sender, EventArgs e)
+        {
+            Cursor.Hide(); // Oculta el cursor del mouse
+            mousePic.Visible = true; // Muestra el PictureBox del cursor personalizado
+            Cursor = Cursors.Cross; // Cambia el cursor del mouse a una cruz
+        }
+
+        private void pictureBox1_MouseLeave(object sender, EventArgs e)
+        {
+            Cursor.Show(); // Muestra el cursor del mouse
+            mousePic.Visible = false; // Oculta el PictureBox del cursor personalizado
+            Cursor = Cursors.Default; // Restablece el cursor del mouse al predeterminado
         }
     }
 }
