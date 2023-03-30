@@ -52,8 +52,7 @@ namespace Pool_Club
             {
                 // Primera columna
                 Pelota pelota1 = new Pelota(ballPosX, ballPosY, ballRadius, rnd.Next(-10, 10), rnd.Next(-10, 10), "1");
-                Console.WriteLine("ball posx:" + ballPosX);
-                Console.WriteLine("ball posy:" + ballPosY);
+
                 // Segunda columna
                 Pelota pelota2 = new Pelota(ballPosX + ballDiameter, ballPosY - ballRadius, ballRadius, rnd.Next(-10, 10), rnd.Next(-10, 10), "2");
                 Pelota pelota3 = new Pelota(ballPosX + ballDiameter, ballPosY + ballRadius, ballRadius, rnd.Next(-10, 10), rnd.Next(-10, 10), "3");
@@ -67,8 +66,7 @@ namespace Pool_Club
             {
                 // Primera columna
                 Pelota pelota1 = new Pelota(ballPosX, ballPosY, ballRadius, rnd.Next(-10, 10), rnd.Next(-10, 10), "1");
-                Console.WriteLine("ball posx:" + ballPosX);
-                Console.WriteLine("ball posy:" + ballPosY);
+
                 // Segunda columna
                 Pelota pelota2 = new Pelota(ballPosX + ballDiameter, ballPosY - ballRadius, ballRadius, rnd.Next(-10, 10), rnd.Next(-10, 10), "2");
                 Pelota pelota3 = new Pelota(ballPosX + ballDiameter, ballPosY + ballRadius, ballRadius, rnd.Next(-10, 10), rnd.Next(-10, 10), "3");
@@ -89,8 +87,7 @@ namespace Pool_Club
             {
                 // Primera columna
                 Pelota pelota1 = new Pelota(ballPosX, ballPosY, ballRadius, rnd.Next(-10, 10), rnd.Next(-10, 10), "1");
-                Console.WriteLine("ball posx:" + ballPosX);
-                Console.WriteLine("ball posy:" + ballPosY);
+
                 // Segunda columna
                 Pelota pelota2 = new Pelota(ballPosX + ballDiameter, ballPosY - ballRadius, ballRadius, rnd.Next(-10, 10), rnd.Next(-10, 10), "2");
                 Pelota pelota3 = new Pelota(ballPosX + ballDiameter, ballPosY + ballRadius, ballRadius, rnd.Next(-10, 10), rnd.Next(-10, 10), "3");
@@ -216,7 +213,7 @@ namespace Pool_Club
                 {
                     if (!pelotaDesaparecida[i] && EstaEnAgujero(p, i))
                     {
-                        Console.WriteLine(p.name);
+
                         // Comprobamos si va en el orden que debe ir
                         if (ordenPelotas[ordenContador] == p.name) {
                             ordenContador++;
