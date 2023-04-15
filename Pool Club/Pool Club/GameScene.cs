@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Drawing.Drawing2D;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -271,41 +272,54 @@ namespace Pool_Club
 
         private void pictureBox1_Paint(object sender, PaintEventArgs e)
         {
-            // Dibujar la mesa de billar
+            // Draw the pool table
             DrawPoolTable(e.Graphics);
 
-            // Dibujar las pelotas
+            // Draw the balls
             foreach (Pelota p in pelotas)
             {
                 p.Dibujar(e.Graphics);
             }
 
-            // Detectar y resolver colisiones entre pelotas
-            for (int i = 0; i < pelotas.Count; i++)
+            // Detect and resolve collisions between balls
+            if (!arrastrandoPelotaBlanca)
             {
-                for (int j = i + 1; j < pelotas.Count; j++)
+                // Create a Path object for each ball that represents its collision circle
+                GraphicsPath[] ballPaths = new GraphicsPath[pelotas.Count];
+                for (int i = 0; i < pelotas.Count; i++)
                 {
-                    Pelota p1 = pelotas[i];
-                    Pelota p2 = pelotas[j];
+                    GraphicsPath path = new GraphicsPath();
+                    path.AddEllipse(pelotas[i].posX - pelotas[i].radio, pelotas[i].posY - pelotas[i].radio, pelotas[i].radio * 2, pelotas[i].radio * 2);
+                    ballPaths[i] = path;
+                }
 
-                    double distancia = Math.Sqrt(Math.Pow(p1.posX - p2.posX, 2) + Math.Pow(p1.posY - p2.posY, 2));
-                    if (distancia < p1.radio + p2.radio)
+                // Detect collisions between the collision circles of the balls
+                for (int i = 0; i < pelotas.Count; i++)
+                {
+                    for (int j = i + 1; j < pelotas.Count; j++)
                     {
-                        // Colisión detectada
-                        double angulo = Math.Atan2(p1.posY - p2.posY, p1.posX - p2.posX);
-                        double velocidadX1 = Math.Cos(angulo) * p1.velocidadInicial;
-                        double velocidadY1 = Math.Sin(angulo) * p1.velocidadInicial;
-                        double velocidadX2 = Math.Cos(angulo + Math.PI) * p2.velocidadInicial;
-                        double velocidadY2 = Math.Sin(angulo + Math.PI) * p2.velocidadInicial;
+                        // Check if the collision circles of the balls intersect
+                        if (ballPaths[i].IsVisible(pelotas[j].posX, pelotas[j].posY))
+                        {
+                            // Collision detected
+                            double angulo = Math.Atan2(pelotas[i].posY - pelotas[j].posY, pelotas[i].posX - pelotas[j].posX);
+                            double velocidadX1 = Math.Cos(angulo) * pelotas[i].velocidadInicial;
+                            double velocidadY1 = Math.Sin(angulo) * pelotas[i].velocidadInicial;
+                            double velocidadX2 = Math.Cos(angulo + Math.PI) * pelotas[j].velocidadInicial;
+                            double velocidadY2 = Math.Sin(angulo + Math.PI) * pelotas[j].velocidadInicial;
 
-                        p1.velocidadX = Convert.ToInt32(velocidadX1);
-                        p1.velocidadY = Convert.ToInt32(velocidadY1);
-                        p2.velocidadX = Convert.ToInt32(velocidadX2);
-                        p2.velocidadY = Convert.ToInt32(velocidadY2);
+                            pelotas[i].velocidadX = Convert.ToInt32(velocidadX1);
+                            pelotas[i].velocidadY = Convert.ToInt32(velocidadY1);
+                            pelotas[j].velocidadX = Convert.ToInt32(velocidadX2);
+                            pelotas[j].velocidadY = Convert.ToInt32(velocidadY2);
+
+                            // Move the balls after the collision
+                            pelotas[i].Mover(pictureBox1.Width, pictureBox1.Height, pelotas);
+                            pelotas[j].Mover(pictureBox1.Width, pictureBox1.Height, pelotas);
+                        }
                     }
                 }
             }
-
         }
 
         private void pictureBox1_MouseDown(object sender, MouseEventArgs e)

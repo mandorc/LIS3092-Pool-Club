@@ -119,7 +119,15 @@ namespace Pool_Club
                 case "blanca":
                     Brush c = Brushes.White;
                     bcolor = c;
-                    Image = Resources.pelotaBlanca;
+                    if (radio > 0)
+                    {
+                        Bitmap bitmap = new Bitmap(radio * 2, radio * 2);
+                        using (Graphics g = Graphics.FromImage(bitmap))
+                        {
+                            g.FillEllipse(c, 0, 0, radio * 2, radio * 2);
+                        }
+                        Image = bitmap;
+                    }
                     break;
                 default:
                     Image = Resources.pelota2; break;
