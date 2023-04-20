@@ -32,6 +32,7 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.mousePic = new System.Windows.Forms.PictureBox();
+            this.temporizador = new System.Windows.Forms.Timer(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.mousePic)).BeginInit();
             this.SuspendLayout();
@@ -55,7 +56,7 @@
             // 
             // timer1
             // 
-            this.timer1.Interval = 20;
+            this.timer1.Interval = 30;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
             // mousePic
@@ -65,6 +66,10 @@
             this.mousePic.Size = new System.Drawing.Size(41, 12);
             this.mousePic.TabIndex = 1;
             this.mousePic.TabStop = false;
+            // 
+            // temporizador
+            // 
+            this.temporizador.Enabled = true;
             // 
             // GameScene
             // 
@@ -89,5 +94,6 @@
         private PictureBox pictureBox1;
         private System.Windows.Forms.Timer timer1;
         private PictureBox mousePic;
+        private System.Windows.Forms.Timer temporizador;
     }
 }

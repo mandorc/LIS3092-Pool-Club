@@ -29,6 +29,8 @@ namespace Pool_Club
 
         private Configuration settings;
 
+        private DateTime ultimoTiempoActualizacion = DateTime.Now;
+
         public GameScene()
         {
             InitializeComponent();
@@ -326,6 +328,8 @@ namespace Pool_Club
         {
             timer1.Enabled = true;
 
+            ultimoTiempoActualizacion = DateTime.Now;
+
             // Verificar si el clic del mouse está en la pelota blanca
             foreach (Pelota p in pelotas)
             {
@@ -344,27 +348,38 @@ namespace Pool_Club
             // Verificar si se está arrastrando la pelota blanca
             if (arrastrandoPelotaBlanca)
             {
-                // Calcular la nueva posición de la pelota blanca
-                int deltaX = e.Location.X - posicionAnteriorMouse.X;
-                int deltaY = e.Location.Y - posicionAnteriorMouse.Y;
-                pelotaBlancaSeleccionada.PosX += deltaX;
-                pelotaBlancaSeleccionada.PosY += deltaY;
-                posicionAnteriorMouse = e.Location;
+                // Verificar si ha pasado suficiente tiempo desde la última actualización
+                DateTime ahora = DateTime.Now;
+                TimeSpan tiempoDesdeUltimaActualizacion = ahora - ultimoTiempoActualizacion;
+                if (tiempoDesdeUltimaActualizacion.TotalMilliseconds >= temporizador.Interval)
+                {
+                    // Actualizar la posición de la pelota blanca
+                    int deltaX = e.Location.X - posicionAnteriorMouse.X;
+                    int deltaY = e.Location.Y - posicionAnteriorMouse.Y;
+                    pelotaBlancaSeleccionada.PosX += deltaX;
+                    pelotaBlancaSeleccionada.PosY += deltaY;
+                    posicionAnteriorMouse = e.Location;
+                    ultimoTiempoActualizacion = ahora;
 
-                // Volver a dibujar el PictureBox
-                pictureBox1.Refresh();
+                    // Volver a dibujar el PictureBox
+                    pictureBox1.Refresh();
+                }
             }
 
-            // Mouse pointer
-            int x = e.X - (mousePic.Width / 2); // Calcula la posición x del mousePic
-            int y = e.Y - (mousePic.Height / 2); // Calcula la posición y del mousePic
-            mousePic.Location = new Point(x, y); // Establece la posición del mousePic
+            // Cambiar el cursor del mouse a la forma correcta
+            Cursor = Cursors.Cross; // O la forma que desees para el cursor personalizado
+
+            // Actualizar la posición del cursor personalizado
+            int x = e.X - (mousePic.Width / 2);
+            int y = e.Y - (mousePic.Height / 2);
+            mousePic.Location = new Point(x, y);
         }
 
         private void pictureBox1_MouseUp(object sender, MouseEventArgs e)
         {
             // Indicar que se ha soltado la pelota blanca
             arrastrandoPelotaBlanca = false;
+            temporizador.Stop();
 
         }
 
