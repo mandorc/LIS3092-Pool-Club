@@ -42,9 +42,8 @@
             this.pictureBox1.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pictureBox1.Location = new System.Drawing.Point(0, 0);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(880, 420);
+            this.pictureBox1.Size = new System.Drawing.Size(1006, 560);
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             this.pictureBox1.Paint += new System.Windows.Forms.PaintEventHandler(this.pictureBox1_Paint);
@@ -56,14 +55,15 @@
             // 
             // timer1
             // 
-            this.timer1.Interval = 30;
+            this.timer1.Interval = 40;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
             // mousePic
             // 
-            this.mousePic.Location = new System.Drawing.Point(208, 202);
+            this.mousePic.Location = new System.Drawing.Point(238, 269);
+            this.mousePic.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.mousePic.Name = "mousePic";
-            this.mousePic.Size = new System.Drawing.Size(41, 12);
+            this.mousePic.Size = new System.Drawing.Size(47, 16);
             this.mousePic.TabIndex = 1;
             this.mousePic.TabStop = false;
             // 
@@ -73,12 +73,11 @@
             // 
             // GameScene
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(880, 420);
+            this.ClientSize = new System.Drawing.Size(1006, 560);
             this.Controls.Add(this.mousePic);
             this.Controls.Add(this.pictureBox1);
-            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "GameScene";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "GameScene";
